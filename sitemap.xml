@@ -378,11 +378,6 @@
   </url>
   
   <url>
-    <loc>/dashboard/connect/</loc>
-    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/scaling/deploy_ca/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url>
@@ -403,12 +398,17 @@
   </url>
   
   <url>
-    <loc>/dashboard/</loc>
+    <loc>/dashboard/connect/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url>
   
   <url>
     <loc>/prerequisites/workspaceiam/</loc>
+  </url>
+  
+  <url>
+    <loc>/dashboard/</loc>
+    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url>
   
   <url>

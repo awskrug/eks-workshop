@@ -183,10 +183,10 @@
 },
 {
 	"uri": "/dashboard/dashboard/",
-	"title": "Deploy the Official Kubernetes Dashboard",
+	"title": "쿠버네티스 공식 대시보드 배포",
 	"tags": [],
 	"description": "",
-	"content": "The official Kubernetes dashboard is not deployed by default, but there are instructions in the official documentation\nWe can deploy the dashboard with the following command:\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml  Since this is deployed to our private cluster, we need to access it via a proxy. Kube-proxy is available to proxy our requests to the dashboard service. In your workspace, run the following command:\nkubectl proxy --port=8080 --address='0.0.0.0' --disable-filter=true \u0026amp;  This will start the proxy, listen on port 8080, listen on all interfaces, and will disable the filtering of non-localhost requests.\nThis command will continue to run in the background of the current terminal\u0026rsquo;s session.\nWe are disabling request filtering, a security feature that guards against XSRF attacks. This isn\u0026rsquo;t recommended for a production environment, but is useful for our dev environment.\n "
+	"content": "쿠버네티스 공식 대시보드는 기본으로 배포되지 않고, 설치 방법이 공식 문서에 있습니다.\n다음 명령어로 대시보드를 배포할 수 있습니다.\nkubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml  이것이 개인 클러스터에 배포되기 때문에 프락시를 통해서 접근해야 합니다. kube-proxy는 대시보드 서비스로 요청을 프락시할 수 있습니다. 귀하의 워크스페이스에서 다음 명령어를 실행하세요.\nkubectl proxy --port=8080 --address='0.0.0.0' --disable-filter=true \u0026amp;  이러면 프락시를 시작하고 8080번 포트로 모든 인터페이스에서 접속 대기하며 비로컬 호스트 요청을 필터링을 사용하지 않도록 설정합니다.\n이 명령은 현재 터미널 세션에서 백그라운드에서 계속 실행됩니다.\nXSRF 공격을 방어하는 보안 기능인 요청 필터링을 비활성화 하였습니다. 이것은 프로덕션 환경에서 권장하지 않지만 개발 환경에서는 유용합니다.\n "
 },
 {
 	"uri": "/healthchecks/readinessprobe/",
@@ -560,13 +560,6 @@
 	"content": " Confirm your Nodes:\nkubectl get nodes  Export the Worker Role Name for use throughout the workshop\nINSTANCE_PROFILE_PREFIX=$(aws cloudformation describe-stacks | jq -r '.Stacks[].StackName' | grep eksctl-eksworkshop-eksctl-nodegroup) INSTANCE_PROFILE_NAME=$(aws iam list-instance-profiles | jq -r '.InstanceProfiles[].InstanceProfileName' | grep $INSTANCE_PROFILE_PREFIX) ROLE_NAME=$(aws iam get-instance-profile --instance-profile-name $INSTANCE_PROFILE_NAME | jq -r '.InstanceProfile.Roles[] | .RoleName') echo \u0026quot;export ROLE_NAME=${ROLE_NAME}\u0026quot; \u0026gt;\u0026gt; ~/.bash_profile  Congratulations! You now have a fully working Amazon EKS Cluster that is ready to use!\n"
 },
 {
-	"uri": "/dashboard/connect/",
-	"title": "Access the Dashboard",
-	"tags": [],
-	"description": "",
-	"content": "Now we can access the Kubernetes Dashboard\n In your Cloud9 environment, click Tools / Preview / Preview Running Application Scroll to the end of the URL and append:  /api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/  Open a New Terminal Tab and enter\naws-iam-authenticator token -i eksworkshop-eksctl --token-only  Copy the output of this command and then click the radio button next to Token then in the text field below paste the output from the last command.\nThen press Sign In.\nIf you want to see the dashboard in a full tab, click the Pop Out button, like below: "
-},
-{
 	"uri": "/scaling/deploy_ca/",
 	"title": "Configure Cluster Autoscaler (CA)",
 	"tags": [],
@@ -595,11 +588,11 @@
 	"content": " Unhealthy container MySQL container uses readiness probe by running mysql -h 127.0.0.1 -e \u0026lsquo;SELECT 1\u0026rsquo; on the server to make sure MySQL server is still active. Open a new terminal and simulate MySQL as being unresponsive by following command.\nkubectl exec mysql-2 -c mysql -- mv /usr/bin/mysql /usr/bin/mysql.off  This command renames the /usr/bin/mysql command so that readiness probe can\u0026rsquo;t find it. During the next health check, the pod should report one of it\u0026rsquo;s containers is not healthy. This can be verified by following command.\nkubectl get pod mysql-2  NAME READY STATUS RESTARTS AGE mysql-2 1/2 Running 0 12m  mysql-read load balancer detects failures and takes action by not sending traffic to the failed container, @@server_id 102. You can check this by the loop running in separate window from previous section. The loop shows the following output.\n+-------------+---------------------+ | @@server_id | NOW() | +-------------+---------------------+ | 101 | 2018-11-14 13:00:45 | +-------------+---------------------+ +-------------+---------------------+ | @@server_id | NOW() | +-------------+---------------------+ | 100 | 2018-11-14 13:00:46 | +-------------+---------------------+ +-------------+---------------------+ | @@server_id | NOW() | +-------------+---------------------+ | 101 | 2018-11-14 13:00:47 | +-------------+---------------------+ +-------------+---------------------+ | @@server_id | NOW() | +-------------+---------------------+ | 100 | 2018-11-14 13:00:48 | +-------------+---------------------+ +-------------+---------------------+ | @@server_id | NOW() | +-------------+---------------------+ | 100 | 2018-11-14 13:00:49 | +-------------+---------------------+  Revert back to its initial state at the previous terminal.\nkubectl exec mysql-2 -c mysql -- mv /usr/bin/mysql.off /usr/bin/mysql  Check the status again to see that both containers are running and healthy\n$ kubectl get pod -w mysql-2  NAME READY STATUS RESTARTS AGE mysql-2 2/2 Running 0 5h  The loop in another terminal is now showing @@server_id 102 is back and all three servers are running. Press Ctrl+C to stop watching.\nFailed pod To simulate a failed pod, delete mysql-2 pod by following command.\nkubectl delete pod mysql-2  pod \u0026quot;mysql-2\u0026quot; deleted  StatefulSet controller recognizes failed pod and creates a new one to maintain the number of replicas with them same name and link to the same PersistentVolumeClaim.\n$ kubectl get pod -w mysql-2  NAME READY STATUS RESTARTS AGE mysql-2 2/2 Terminating 0 1d mysql-2 0/2 Terminating 0 1d mysql-2 0/2 Terminating 0 1d mysql-2 0/2 Terminating 0 1d mysql-2 0/2 Pending 0 0s mysql-2 0/2 Pending 0 0s mysql-2 0/2 Init:0/2 0 0s mysql-2 0/2 Init:1/2 0 10s mysql-2 0/2 PodInitializing 0 11s mysql-2 1/2 Running 0 12s mysql-2 2/2 Running 0 16s  Press Ctrl+C to stop watching.\n"
 },
 {
-	"uri": "/dashboard/",
-	"title": "Deploy the Kubernetes Dashboard",
+	"uri": "/dashboard/connect/",
+	"title": "대시보드 사용",
 	"tags": [],
 	"description": "",
-	"content": " Deploy the Kubernetes Dashboard In this Chapter, we will deploy the official Kubernetes dashboard, and connect through our Cloud9 Workspace.\n"
+	"content": "이제 쿠버네티스 대시보드를 사용할 수 있습니다.\n 귀하의 클라우드9 환경에서 Tools / Preview / Preview Running Application 을 클릭합니다. the end of the URL 를 찾아서 다음을 추가합니다.  /api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/  터미널 탭을 열고 다음을 입력합니다.\naws-iam-authenticator token -i eksworkshop-eksctl --token-only  이 명령의 출력을 복사하고 Token 옆에 라디오버튼을 *클릭*하고, 아래 텍스트 필드에 복사한 마지막 명령의 출력을 붙여넣습니다.\n그리고 *Sign In*을 누릅니다.\n전체 탭에서 대시보드를 보고 싶으면, 아래처럼 Pop Out 버튼을 클릭하세요. "
 },
 {
 	"uri": "/prerequisites/workspaceiam/",
@@ -607,6 +600,13 @@
 	"tags": [],
 	"description": "",
 	"content": " Cloud9는 일반적으로 IAM 자격 증명을 동적으로 관리합니다. 현재 aws-iam-authenticator 플러그인과 호환되지 않으므로 이를 비활성화하고 대신 IAM 역할을 사용합니다.\n  작업 공간으로 돌아가서 우측상단의 톱니바퀴 버튼을 클릭하거나 새 탭을 실행하여 환경설정 탭을 엽니다. AWS SETTINGS을 선택합니다. AWS managed temporary credentials 설정을 끕니다. 환경설정 탭을 닫습니다.   임시 자격 증명이 없는지 확실히 하기 위해 기존의 자격 증명 파일도 제거합니다 :\nrm -vf ${HOME}/.aws/credentials  현재 리전을 기준으로 aws-cli를 구성해야 합니다 :\nexport AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region') echo \u0026quot;export AWS_REGION=${AWS_REGION}\u0026quot; \u0026gt;\u0026gt; ~/.bash_profile aws configure set default.region ${AWS_REGION} aws configure get default.region   IAM 역할 확인 GetCallerIdentity CLI 명령을 사용하여 Cloud9 IDE가 올바른 IAM 역할을 사용하는지 확인합니다.\n먼저 AWS CLI에서 IAM 역할 이름을 가져옵니다.\nINSTANCE_PROFILE_NAME=`basename $(aws ec2 describe-instances --filters Name=tag:Name,Values=aws-cloud9-${C9_PROJECT}-${C9_PID} | jq -r '.Reservations[0].Instances[0].IamInstanceProfile.Arn' | awk -F \u0026quot;/\u0026quot; \u0026quot;{print $2}\u0026quot;)` aws iam get-instance-profile --instance-profile-name $INSTANCE_PROFILE_NAME --query \u0026quot;InstanceProfile.Roles[0].RoleName\u0026quot; --output text  역할 이름이 출력됩니다.\neksworkshop-admin or modernizer-workshop-cl9  그 결과를 다음과 비교해보세요.\naws sts get-caller-identity  유효한 경우 Arn 이 위의 역할 이름과 인스턴스 ID를 포함하는 경우 계속 진행할 수 있습니다.\n{ \u0026quot;Account\u0026quot;: \u0026quot;123456789012\u0026quot;, \u0026quot;UserId\u0026quot;: \u0026quot;AROA1SAMPLEAWSIAMROLE:i-01234567890abcdef\u0026quot;, \u0026quot;Arn\u0026quot;: \u0026quot;arn:aws:sts::123456789012:assumed-role/eksworkshop-admin/i-01234567890abcdef\u0026quot; } or { \u0026quot;Account\u0026quot;: \u0026quot;123456789012\u0026quot;, \u0026quot;UserId\u0026quot;: \u0026quot;AROA1SAMPLEAWSIAMROLE:i-01234567890abcdef\u0026quot;, \u0026quot;Arn\u0026quot;: \u0026quot;arn:aws:sts::123456789012:assumed-role/modernizer-workshop-cl9/i-01234567890abcdef\u0026quot; }  문제가 있는 경우 Arn 이 TeamRole, MasterRole을 포함하거나 역할 이름과 일치하지 않으면 더 이상 진행하지 마세요. 돌아가서 이 페이지의 지시사항을 다시 확인하십시오.\n{ \u0026quot;Account\u0026quot;: \u0026quot;123456789012\u0026quot;, \u0026quot;UserId\u0026quot;: \u0026quot;AROA1SAMPLEAWSIAMROLE:i-01234567890abcdef\u0026quot;, \u0026quot;Arn\u0026quot;: \u0026quot;arn:aws:sts::123456789012:assumed-role/TeamRole/MasterRole\u0026quot; }  "
+},
+{
+	"uri": "/dashboard/",
+	"title": "쿠버네티스 대시보드 배포",
+	"tags": [],
+	"description": "",
+	"content": " 쿠버네티스 대시보드를 배포합니다. 이번 장에서는 쿠버네티스 공식 대시보드를 배포하고, 귀하의 Clound9를 통해 접속합니다.\n"
 },
 {
 	"uri": "/deploy/",
@@ -1145,7 +1145,7 @@
 	"title": "Credits",
 	"tags": [],
 	"description": "",
-	"content": " Thanks to our wonderful contributors  for making Open Source a better place! .ghContributors{ display:flex; flex-flow: wrap; align-content: flex-start } .ghContributors  div{ width: 50% ; display: inline-flex; margin-bottom: 5px; } .ghContributors  div label{ padding-left: 4px ; } .ghContributors  div span{ font-size: x-small; padding-left: 4px ; }   @brentley 47 commits   @geremyCohen 25 commits   @voyagerwoo 24 commits   @oak2278 20 commits   @dalbhanj 10 commits   @rnzsgh 8 commits   @jpeddicord 6 commits   @buzzsurfr 6 commits   @nikipat 4 commits   @yoonian 4 commits   @gmarchand 3 commits   @alexpulver 2 commits   @alexei-led 2 commits   @DocValerian 2 commits   @rasensio 2 commits   @yunsu246 2 commits   @johnstanfield 2 commits   @ocxo 1 commits   @sharmaanshul2102 1 commits   @bhean 1 commits   @ChanceLee0111 1 commits   @rebelthor 1 commits   @enghwa 1 commits   @feanil 1 commits   @GElkayam 1 commits   @geordan-hatech 1 commits   @itaysk 1 commits   @techsolx 1 commits   @jupp0r 1 commits   @kimsaabyepedersen 1 commits   @Lixxia 1 commits   @LiranBri 1 commits   @mreferre 1 commits   @mikesigs 1 commits   @tabern 1 commits   @nihooge 1 commits   @wolruf 1 commits   @ranrotx 1 commits   @shaiss 1 commits   @jennylover 1 commits   @sajee 1 commits   @obbaeiei 1 commits   @trevorrobertsjr 1 commits   @vjsikha 1 commits   @Oik741 1 commits   @algestam 1 commits   @auziel 1 commits   @barelnir 1 commits   @gearora 1 commits   @jaybarnes 1 commits   "
+	"content": " Thanks to our wonderful contributors  for making Open Source a better place! .ghContributors{ display:flex; flex-flow: wrap; align-content: flex-start } .ghContributors  div{ width: 50% ; display: inline-flex; margin-bottom: 5px; } .ghContributors  div label{ padding-left: 4px ; } .ghContributors  div span{ font-size: x-small; padding-left: 4px ; }   @brentley 47 commits   @voyagerwoo 26 commits   @geremyCohen 25 commits   @oak2278 20 commits   @dalbhanj 10 commits   @rnzsgh 8 commits   @jpeddicord 6 commits   @buzzsurfr 6 commits   @nikipat 4 commits   @yoonian 4 commits   @gmarchand 3 commits   @alexpulver 2 commits   @alexei-led 2 commits   @DocValerian 2 commits   @rasensio 2 commits   @yunsu246 2 commits   @johnstanfield 2 commits   @ocxo 1 commits   @sharmaanshul2102 1 commits   @bhean 1 commits   @ChanceLee0111 1 commits   @rebelthor 1 commits   @enghwa 1 commits   @feanil 1 commits   @GElkayam 1 commits   @geordan-hatech 1 commits   @itaysk 1 commits   @techsolx 1 commits   @jupp0r 1 commits   @kimsaabyepedersen 1 commits   @Lixxia 1 commits   @LiranBri 1 commits   @mreferre 1 commits   @mikesigs 1 commits   @tabern 1 commits   @nihooge 1 commits   @wolruf 1 commits   @ranrotx 1 commits   @shaiss 1 commits   @jennylover 1 commits   @sajee 1 commits   @obbaeiei 1 commits   @trevorrobertsjr 1 commits   @vjsikha 1 commits   @Oik741 1 commits   @algestam 1 commits   @auziel 1 commits   @barelnir 1 commits   @gearora 1 commits   @jaybarnes 1 commits   "
 },
 {
 	"uri": "/tabs-example/tabs/",

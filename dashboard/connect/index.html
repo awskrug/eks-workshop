@@ -15,24 +15,24 @@
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
 
-    <title>Access the Dashboard :: Amazon EKS 워크샵</title>
+    <title>대시보드 사용 :: Amazon EKS 워크샵</title>
 
     
-    <link href="../../css/nucleus.css?1553087465" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1553087465" rel="stylesheet">
-    <link href="../../css/hybrid.css?1553087465" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1553087465" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1553087465" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1553087465" rel="stylesheet">
-    <link href="../../css/theme.css?1553087465" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1553087465" rel="stylesheet">
-    <link href="../../css/jquery-ui.min.css?1553087465" rel="stylesheet">
+    <link href="../../css/nucleus.css?1553092687" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1553092687" rel="stylesheet">
+    <link href="../../css/hybrid.css?1553092687" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1553092687" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1553092687" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1553092687" rel="stylesheet">
+    <link href="../../css/theme.css?1553092687" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1553092687" rel="stylesheet">
+    <link href="../../css/jquery-ui.min.css?1553092687" rel="stylesheet">
     
-      <link href="../../css/theme-mine.css?1553087465" rel="stylesheet">
+      <link href="../../css/theme-mine.css?1553092687" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1553087465"></script>
-    <script src="../../js/jquery-ui-1.12.1.min.js?1553087465"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1553092687"></script>
+    <script src="../../js/jquery-ui-1.12.1.min.js?1553092687"></script>
 
 
     <style type="text/css">
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1553087465"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1553087465"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1553092687"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1553092687"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1553087465"></script>
+<script type="text/javascript" src="../../js/search.js?1553092687"></script>
 
     
   </div>
@@ -774,13 +774,13 @@
  
   
     
-    <li data-nav-id="/dashboard/" title="Deploy the Kubernetes Dashboard" class="dd-item 
+    <li data-nav-id="/dashboard/" title="쿠버네티스 대시보드 배포" class="dd-item 
         parent
         
         
         ">
       <a href="../../dashboard/">
-          Deploy the Kubernetes Dashboard
+          쿠버네티스 대시보드 배포
           
       </a>
       
@@ -799,9 +799,9 @@
  
   
     
-      <li data-nav-id="/dashboard/dashboard/" title="Deploy the Official Kubernetes Dashboard" class="dd-item ">
+      <li data-nav-id="/dashboard/dashboard/" title="쿠버네티스 공식 대시보드 배포" class="dd-item ">
         <a href="../../dashboard/dashboard/">
-        Deploy the Official Kubernetes Dashboard
+        쿠버네티스 공식 대시보드 배포
         
         </a>
     </li>
@@ -818,9 +818,9 @@
  
   
     
-      <li data-nav-id="/dashboard/connect/" title="Access the Dashboard" class="dd-item active">
+      <li data-nav-id="/dashboard/connect/" title="대시보드 사용" class="dd-item active">
         <a href="../../dashboard/connect/">
-        Access the Dashboard
+        대시보드 사용
         
         </a>
     </li>
@@ -3657,7 +3657,7 @@
             
           
           
-            <a href='../../'>Amazon EKS 워크샵</a> > <a href='../../dashboard/'>Deploy the Kubernetes Dashboard</a> > Access the Dashboard
+            <a href='../../'>Amazon EKS 워크샵</a> > <a href='../../dashboard/'>쿠버네티스 대시보드 배포</a> > 대시보드 사용
           
          
           
@@ -3681,35 +3681,35 @@
         
         <div id="body-inner">
           
-            <h1>Access the Dashboard</h1>
+            <h1>대시보드 사용</h1>
           
 
         
 
 
-<p>Now we can access the Kubernetes Dashboard</p>
+<p>이제 쿠버네티스 대시보드를 사용할 수 있습니다.</p>
 
 <ol>
-<li>In your Cloud9 environment, click <strong>Tools / Preview / Preview Running Application</strong></li>
-<li>Scroll to <strong>the end of the URL</strong> and append:</li>
+<li>귀하의 클라우드9 환경에서 <strong>Tools / Preview / Preview Running Application</strong> 을 클릭합니다.</li>
+<li><strong>the end of the URL</strong> 를 찾아서 다음을 추가합니다.</li>
 </ol>
 
 <pre><code>/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 </code></pre>
 
-<p>Open a New Terminal Tab  and enter</p>
+<p>터미널 탭을 열고 다음을 입력합니다.</p>
 
 <pre><code>aws-iam-authenticator token -i eksworkshop-eksctl --token-only
 </code></pre>
 
-<p>Copy the output of this command and then <em>click</em> the radio button next to
-<em>Token</em> then in the text field below paste the output from the last command.</p>
+<p>이 명령의 출력을 복사하고 <em>Token</em> 옆에 라디오버튼을 *클릭*하고,
+아래 텍스트 필드에 복사한 마지막 명령의 출력을 붙여넣습니다.</p>
 
-<p><img src="../../images/dashboard-connect.png" alt="Token page" /></p>
+<p><img src="../../images/dashboard-connect.png" alt="Token 페이지" /></p>
 
-<p>Then press <em>Sign In</em>.</p>
+<p>그리고 *Sign In*을 누릅니다.</p>
 
-<p>If you want to see the dashboard in a full tab, click the <strong>Pop Out</strong> button, like below:
+<p>전체 탭에서 대시보드를 보고 싶으면, 아래처럼 <strong>Pop Out</strong> 버튼을 클릭하세요.
 <img src="../../images/popout.png" alt="popout" /></p>
 
 
@@ -6339,7 +6339,7 @@
 
 
         
-            <a class="nav nav-prev" href="../../dashboard/dashboard/" title="Deploy the Official Kubernetes Dashboard"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../../dashboard/dashboard/" title="쿠버네티스 공식 대시보드 배포"> <i class="fas fa-chevron-left"></i></a>
         
         
             <a class="nav nav-next" href="../../deploy/" title="마이크로서비스 예제 배포" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
@@ -6351,20 +6351,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1553087465"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1553087465"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1553087465"></script>
-    <script src="../../js/jquery.sticky.js?1553087465"></script>
-    <script src="../../js/featherlight.min.js?1553087465"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1553087465"></script>
-    <script src="../../js/highlight.pack.js?1553087465"></script>
+    <script src="../../js/clipboard.min.js?1553092687"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1553092687"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1553092687"></script>
+    <script src="../../js/jquery.sticky.js?1553092687"></script>
+    <script src="../../js/featherlight.min.js?1553092687"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1553092687"></script>
+    <script src="../../js/highlight.pack.js?1553092687"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1553087465"></script>
-    <script src="../../js/learn.js?1553087465"></script>
-    <script src="../../js/hugo-learn.js?1553087465"></script>
+    <script src="../../js/modernizr.custom.71422.js?1553092687"></script>
+    <script src="../../js/learn.js?1553092687"></script>
+    <script src="../../js/hugo-learn.js?1553092687"></script>
 
-    <link href="../../mermaid/mermaid.css?1553087465" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.min.js?1553087465"></script>
+    <link href="../../mermaid/mermaid.css?1553092687" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.min.js?1553092687"></script>
     <script>
 	var config = {
         startOnLoad:true,
