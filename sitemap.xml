@@ -553,16 +553,16 @@
   </url>
   
   <url>
-    <loc>/spotworkers/cleanup/</loc>
-  </url>
-  
-  <url>
     <loc>/cleanup/workspace/</loc>
   </url>
   
   <url>
     <loc>/calico/</loc>
     <lastmod>2018-11-08T08:30:11-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/spotworkers/cleanup/</loc>
   </url>
   
   <url>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Using Spot Instances with EKS on Amazon EKS 워크샵</title>
+    <title>EKS에서 스팟 인스턴스 사용 on Amazon EKS 워크샵</title>
     <link>/spotworkers/</link>
-    <description>Recent content in Using Spot Instances with EKS on Amazon EKS 워크샵</description>
+    <description>Recent content in EKS에서 스팟 인스턴스 사용 on Amazon EKS 워크샵</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <lastBuildDate>Tue, 07 Aug 2018 11:05:19 -0700</lastBuildDate>
@@ -12,47 +12,48 @@
     
     
     <item>
-      <title>Add EC2 Workers - On-Demand and Spot</title>
+      <title>EC2 워커 추가하기 - 온디맨드 그리고 스팟 EC2</title>
       <link>/spotworkers/workers/</link>
       <pubDate>Tue, 07 Aug 2018 11:05:19 -0700</pubDate>
       
       <guid>/spotworkers/workers/</guid>
-      <description>We have our EKS Cluster and worker nodes already, but we need some Spot Instances configured as workers. We also need a Node Labeling strategy to identify which instances are Spot and which are on-demand so that we can make more intelligent scheduling decisions. We will use AWS CloudFormation to launch new worker nodes that will connect to the EKS cluster.
-This template will create a single ASG that leverages the latest feature to mix multiple instance types and purchase as a single K8s nodegroup.</description>
+      <description>이미 EKS 클러스터와 작업자 노드가 있지만 작업자로 구성된 일부 스팟 인스턴스가 필요합니다. 또한 지능적인 스케줄링 결정을 내릴 수 있도록 스팟(Spot)과 주문형(On-Demand)을 식별하는 노드 레이블링 전략이 필요합니다. AWS CloudFormation을 사용하여 EKS 클러스터에 연결할 새 작업 노드를 시작합니다. 이 템플릿은 여러 인스턴스 유형으로 구성된 단일 k8s 노드 그룹을 구매하는 최신 기능을 최대한 활용하는 ASG(Auto Scaling Group)를 생성합니다. 다음 블로그를 확인하세요: New – EC2 Auto Scaling Groups With Multiple Instance Types &amp;amp; Purchase Options for details.</description>
     </item>
     
     <item>
-      <title>Deploy The Spot Interrupt Handler</title>
+      <title>스팟 인터럽트 핸들러 배포</title>
       <link>/spotworkers/deployhandler/</link>
       <pubDate>Tue, 07 Aug 2018 12:32:40 -0700</pubDate>
       
       <guid>/spotworkers/deployhandler/</guid>
-      <description>In this section, we will prepare our cluster to handle Spot interruptions.
-If the available On-Demand capacity of a particular instance type is depleted, the Spot Instance is sent an interruption notice two minutes ahead to gracefully wrap up things. We will deploy a pod on each spot instance to detect and redeploy applications elsewhere in the cluster
-The first thing that we need to do is deploy the Spot Interrupt Handler on each Spot Instance.</description>
+      <description>이 섹션에서는 클러스터가 스팟 중단에 대처하도록 준비해볼 예정입니다. 특정 인스턴스 유형의 사용 가능한 온디맨드 용량이 고갈되면 스팟 인스턴스에 2분 전에 중단 알림이 보내져 정상적으로 마무리됩니다. 각 스팟 인스턴스에 애플리케이션을 탐지하고 클러스터의 다른 곳에 재배포하는 역할을 가진 파드를 배포할 것입니다.
+우리가 해야 할 첫 번째 일은 각 스팟 인스턴스에 스팟 인터럽트 핸들러를 배치하는 것입니다. 이 핸들러는 중단 알림을 위해 인스턴스에서 EC2 메타 데이터 서비스를 모니터링합니다.
+워크플로우를 정리해보면:
+ 스팟 인스턴스가 반환이 요청되었는지 확인합니다.</description>
     </item>
     
     <item>
-      <title>Deploy an Application on Spot</title>
+      <title>스팟에 애플리케이션 배포하기</title>
       <link>/spotworkers/preferspot/</link>
       <pubDate>Tue, 18 Sep 2018 17:40:09 -0500</pubDate>
       
       <guid>/spotworkers/preferspot/</guid>
-      <description>We are redesigning our Microservice example and want our frontend service to be deployed on Spot Instances when they are available. We will use Node Affinity in our manifest file to configure this.
-Configure Node Affinity and Tolerations Open the deployment manifest in your Cloud9 editor - ~/environment/ecsdemo-frontend/kubernetes/deployment.yaml
-Edit the spec to configure NodeAffinity to prefer Spot Instances, but not require them. This will allow the pods to be scheduled on On-Demand nodes if no spot instances were available or correctly labelled.</description>
+      <description>마이크로서비스 예제를 다시 설계합니다. 스팟 인스턴스가 사용 가능하다면 프론트앤드 서비스를 스팟에 배포하도록 합니다. 이 설정을 위해서 매니패스트 파일에 노드 어피니티(Node Affinity) 설정을 이용할 것입니다.
+노드 어피니티 및 톨러레이션 설정 Cloud9 에디터에서 디플로이먼트 메니페스트 파일을 엽니다. ~/environment/ecsdemo-frontend/kubernetes/deployment.yaml
+스펙을 편집하여 노트 어피니티를 스팟 인스턴스를 필수(require)가 아닌 선호(prefer)하도록 구성하십시오. 이렇게 하면 사용 가능한 스팟 인스턴스가 없거나 올바르게 레이블 된 경우 온디맨드 노드에 파드를 스케줄 할 수 있습니다.
+또한 포드가 EC2 스팟 인스턴스에서 구성한 테인트를 &amp;ldquo;허용&amp;rdquo;할 수 있도록 톨러레이션(허용 범위)을 구성하려고 합니다.</description>
     </item>
     
     <item>
-      <title>Cleanup</title>
+      <title>깔끔하게 제거하기</title>
       <link>/spotworkers/cleanup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/spotworkers/cleanup/</guid>
-      <description>Cleanup our Microservices deployment
-cd ~/environment/ecsdemo-frontend kubectl delete -f kubernetes/service.yaml kubectl delete -f kubernetes/deployment.yaml cd ~/environment/ecsdemo-crystal kubectl delete -f kubernetes/service.yaml kubectl delete -f kubernetes/deployment.yaml cd ~/environment/ecsdemo-nodejs kubectl delete -f kubernetes/service.yaml kubectl delete -f kubernetes/deployment.yaml  Cleanup the Spot Handler Daemonset
-kubectl delete -f ~/environment/spot/spot-interrupt-handler-example.yml  To clean up the worker created by this module, run the following commands:
-Remove the Worker nodes from EKS:
+      <description>마이크로서비스 디플로이먼트를 모두 제거합니다.
+cd ~/environment/ecsdemo-frontend kubectl delete -f kubernetes/service.yaml kubectl delete -f kubernetes/deployment.yaml cd ~/environment/ecsdemo-crystal kubectl delete -f kubernetes/service.yaml kubectl delete -f kubernetes/deployment.yaml cd ~/environment/ecsdemo-nodejs kubectl delete -f kubernetes/service.yaml kubectl delete -f kubernetes/deployment.yaml  스팟 핸들러 데몬셋을 제거합니다.
+kubectl delete -f ~/environment/spot/spot-interrupt-handler-example.yml  이번 모듈에서 생성된 워커를 모두 제거하기 위해서, 아래의 명령어를 실행합니다.
+EKS에서 워커 노드 모두 제거하기:
 aws cloudformation delete-stack --stack-name &amp;quot;eksworkshop-spot-workers&amp;quot;  </description>
     </item>
     
