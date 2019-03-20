@@ -15,24 +15,24 @@
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
 
-    <title>Launch EKS :: Amazon EKS 워크샵</title>
+    <title>EKS 실행 :: Amazon EKS 워크샵</title>
 
     
-    <link href="../../css/nucleus.css?1553107009" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1553107009" rel="stylesheet">
-    <link href="../../css/hybrid.css?1553107009" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1553107009" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1553107009" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1553107009" rel="stylesheet">
-    <link href="../../css/theme.css?1553107009" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1553107009" rel="stylesheet">
-    <link href="../../css/jquery-ui.min.css?1553107009" rel="stylesheet">
+    <link href="../../css/nucleus.css?1553107125" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1553107125" rel="stylesheet">
+    <link href="../../css/hybrid.css?1553107125" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1553107125" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1553107125" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1553107125" rel="stylesheet">
+    <link href="../../css/theme.css?1553107125" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1553107125" rel="stylesheet">
+    <link href="../../css/jquery-ui.min.css?1553107125" rel="stylesheet">
     
-      <link href="../../css/theme-mine.css?1553107009" rel="stylesheet">
+      <link href="../../css/theme-mine.css?1553107125" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1553107009"></script>
-    <script src="../../js/jquery-ui-1.12.1.min.js?1553107009"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1553107125"></script>
+    <script src="../../js/jquery-ui-1.12.1.min.js?1553107125"></script>
 
 
     <style type="text/css">
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1553107009"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1553107009"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1553107125"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1553107125"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1553107009"></script>
+<script type="text/javascript" src="../../js/search.js?1553107125"></script>
 
     
   </div>
@@ -685,13 +685,13 @@
  
   
     
-    <li data-nav-id="/eksctl/" title="Launch using eksctl" class="dd-item 
+    <li data-nav-id="/eksctl/" title="eksctl을 이용하여 EKS 실행" class="dd-item 
         parent
         
         
         ">
       <a href="../../eksctl/">
-          Launch using eksctl
+          eksctl을 이용하여 EKS 실행
           
       </a>
       
@@ -710,9 +710,9 @@
  
   
     
-      <li data-nav-id="/eksctl/prerequisites/" title="Prerequisites" class="dd-item ">
+      <li data-nav-id="/eksctl/prerequisites/" title="준비하기" class="dd-item ">
         <a href="../../eksctl/prerequisites/">
-        Prerequisites
+        준비하기
         
         </a>
     </li>
@@ -729,9 +729,9 @@
  
   
     
-      <li data-nav-id="/eksctl/launcheks/" title="Launch EKS" class="dd-item active">
+      <li data-nav-id="/eksctl/launcheks/" title="EKS 실행" class="dd-item active">
         <a href="../../eksctl/launcheks/">
-        Launch EKS
+        EKS 실행
         
         </a>
     </li>
@@ -748,9 +748,9 @@
  
   
     
-      <li data-nav-id="/eksctl/test/" title="Test the Cluster" class="dd-item ">
+      <li data-nav-id="/eksctl/test/" title="클러스터 테스트" class="dd-item ">
         <a href="../../eksctl/test/">
-        Test the Cluster
+        클러스터 테스트
         
         </a>
     </li>
@@ -3661,7 +3661,7 @@
             
           
           
-            <a href='../../'>Amazon EKS 워크샵</a> > <a href='../../eksctl/'>Launch using eksctl</a> > Launch EKS
+            <a href='../../'>Amazon EKS 워크샵</a> > <a href='../../eksctl/'>eksctl을 이용하여 EKS 실행</a> > EKS 실행
           
          
           
@@ -3681,9 +3681,9 @@
 <ul>
 <li>
 <ul>
-<li><a href="#challenge">Challenge:</a></li>
+<li><a href="#도전">도전:</a></li>
 </ul></li>
-<li><a href="#create-an-eks-cluster">Create an EKS cluster</a></li>
+<li><a href="#eks-클러스터-만들기">EKS 클러스터 만들기</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -3699,7 +3699,7 @@
         
         <div id="body-inner">
           
-            <h1>Launch EKS</h1>
+            <h1>EKS 실행</h1>
           
 
         
@@ -3707,13 +3707,14 @@
 
 
 
-<div class="notices warning" ><p><strong>DO NOT PROCEED</strong> with this step unless you have <a href="../../prerequisites/workspaceiam/#validate-the-iam-role">validated the IAM role</a> in use by the Cloud9 IDE. You will not be able to run the necessary kubectl commands in the later modules unless the EKS cluster is built using the IAM role.</p>
+<div class="notices warning" ><p>사용중인 Cloud9 IDE에서 <a href="../../prerequisites/workspaceiam/#iam-역할-확인">IAM 역할을 확인</a>하지 않았다면 <strong>더 이상 진행하면 안됩니다</strong>.
+EKS 클러스터가 IAM 역할을 사용하여 빌드되지 않은 경우 나중 모듈에서 필요한 kubectl 명령을 실행할 수 없습니다.</p>
 </div>
 
 
-<h4 id="challenge">Challenge:</h4>
+<h4 id="도전">도전:</h4>
 
-<p><strong>How do I check the IAM role on the workspace?</strong></p>
+<p><strong>워크스페이스에서 IAM 역할을 확인하려면 어떻게하나요?</strong></p>
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -3721,13 +3722,13 @@
         <span>
         
     	
-    	Expand here to see the solution
+    	솔루션을 보려면 여기를 펼치세요
     	
     	</span>
     </div>
     <div class="expand-content" style="display: none;">
-        <p>Run <code>aws sts get-caller-identity</code> and validate that your <em>Arn</em> contains <code>eksworkshop-admin</code> or <code>modernizer-workshop-cl9
-</code> (or the role created when starting the workshop) and an Instance Id.</p>
+        <p>Run <code>aws sts get-caller-identity</code> and validate that your <em>Arn</em> contains <code>eksworkshop-admin</code> or <code>modernizer-workshop-cl9</code> (or the role created when starting the workshop) and an Instance Id.
+<code>aws sts get-caller-identity</code>를 실행하여 <em>Arn</em> 에<code>eksworkshop-admin</code> 또는 <code>modernizer-workshop-cl9</code> (또는 워크숍을 시작할 때 생성 된 역할)과 인스턴스 Id가 들어 있는지 확인하십시오.</p>
 
 <pre><code class="language-output">{
     &quot;Account&quot;: &quot;123456789012&quot;, 
@@ -3742,21 +3743,21 @@ or
 }
 </code></pre>
 
-<p>If you do not see the correct role, please go back and <a href="../../prerequisites/workspaceiam/#validate-the-iam-role">validate the IAM role</a> for troubleshooting.</p>
+<p>올바른 역할이 아니라면 <a href="../../prerequisites/workspaceiam/#iam-역할-확인">IAM 역할을 확인</a>으로 돌아가서 문제를 해결하세요.</p>
 
-<p>If you do see the correct role, proceed to next step to create an EKS cluster.</p>
+<p>올바른 역할이 표시되면 다음 단계로 진행하여 EKS 클러스터를 만듭니다.</p>
 
     </div>
 </div>
 
-<h3 id="create-an-eks-cluster">Create an EKS cluster</h3>
+<h3 id="eks-클러스터-만들기">EKS 클러스터 만들기</h3>
 
-<p>To create a basic EKS cluster, run:</p>
+<p>기본 EKS 클러스터를 생성하려면 다음을 실행하세요 :</p>
 
 <pre><code>eksctl create cluster --name=eksworkshop-eksctl --nodes=3 --node-ami=auto --region=${AWS_REGION}
 </code></pre>
 
-<p><div class="notices info" ><p>Launching EKS and all the dependencies will take approximately 15 minutes</p>
+<p><div class="notices info" ><p>EKS와 모든 의존관계들의 실행은 약 15 분이 소요됩니다.</p>
 </div>
 </p>
 
@@ -6387,10 +6388,10 @@ or
 
 
         
-            <a class="nav nav-prev" href="../../eksctl/prerequisites/" title="Prerequisites"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../../eksctl/prerequisites/" title="준비하기"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../../eksctl/test/" title="Test the Cluster" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../../eksctl/test/" title="클러스터 테스트" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
@@ -6399,20 +6400,20 @@ or
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1553107009"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1553107009"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1553107009"></script>
-    <script src="../../js/jquery.sticky.js?1553107009"></script>
-    <script src="../../js/featherlight.min.js?1553107009"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1553107009"></script>
-    <script src="../../js/highlight.pack.js?1553107009"></script>
+    <script src="../../js/clipboard.min.js?1553107125"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1553107125"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1553107125"></script>
+    <script src="../../js/jquery.sticky.js?1553107125"></script>
+    <script src="../../js/featherlight.min.js?1553107125"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1553107125"></script>
+    <script src="../../js/highlight.pack.js?1553107125"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1553107009"></script>
-    <script src="../../js/learn.js?1553107009"></script>
-    <script src="../../js/hugo-learn.js?1553107009"></script>
+    <script src="../../js/modernizr.custom.71422.js?1553107125"></script>
+    <script src="../../js/learn.js?1553107125"></script>
+    <script src="../../js/hugo-learn.js?1553107125"></script>
 
-    <link href="../../mermaid/mermaid.css?1553107009" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.min.js?1553107009"></script>
+    <link href="../../mermaid/mermaid.css?1553107125" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.min.js?1553107125"></script>
     <script>
 	var config = {
         startOnLoad:true,

@@ -15,24 +15,24 @@
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
 
-    <title>Test the Cluster :: Amazon EKS 워크샵</title>
+    <title>클러스터 테스트 :: Amazon EKS 워크샵</title>
 
     
-    <link href="../../css/nucleus.css?1553107010" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1553107010" rel="stylesheet">
-    <link href="../../css/hybrid.css?1553107010" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1553107010" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1553107010" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1553107010" rel="stylesheet">
-    <link href="../../css/theme.css?1553107010" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1553107010" rel="stylesheet">
-    <link href="../../css/jquery-ui.min.css?1553107010" rel="stylesheet">
+    <link href="../../css/nucleus.css?1553107125" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1553107125" rel="stylesheet">
+    <link href="../../css/hybrid.css?1553107125" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1553107125" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1553107125" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1553107125" rel="stylesheet">
+    <link href="../../css/theme.css?1553107125" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1553107125" rel="stylesheet">
+    <link href="../../css/jquery-ui.min.css?1553107125" rel="stylesheet">
     
-      <link href="../../css/theme-mine.css?1553107010" rel="stylesheet">
+      <link href="../../css/theme-mine.css?1553107125" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1553107010"></script>
-    <script src="../../js/jquery-ui-1.12.1.min.js?1553107010"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1553107125"></script>
+    <script src="../../js/jquery-ui-1.12.1.min.js?1553107125"></script>
 
 
     <style type="text/css">
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1553107010"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1553107010"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1553107125"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1553107125"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1553107010"></script>
+<script type="text/javascript" src="../../js/search.js?1553107125"></script>
 
     
   </div>
@@ -685,13 +685,13 @@
  
   
     
-    <li data-nav-id="/eksctl/" title="Launch using eksctl" class="dd-item 
+    <li data-nav-id="/eksctl/" title="eksctl을 이용하여 EKS 실행" class="dd-item 
         parent
         
         
         ">
       <a href="../../eksctl/">
-          Launch using eksctl
+          eksctl을 이용하여 EKS 실행
           
       </a>
       
@@ -710,9 +710,9 @@
  
   
     
-      <li data-nav-id="/eksctl/prerequisites/" title="Prerequisites" class="dd-item ">
+      <li data-nav-id="/eksctl/prerequisites/" title="준비하기" class="dd-item ">
         <a href="../../eksctl/prerequisites/">
-        Prerequisites
+        준비하기
         
         </a>
     </li>
@@ -729,9 +729,9 @@
  
   
     
-      <li data-nav-id="/eksctl/launcheks/" title="Launch EKS" class="dd-item ">
+      <li data-nav-id="/eksctl/launcheks/" title="EKS 실행" class="dd-item ">
         <a href="../../eksctl/launcheks/">
-        Launch EKS
+        EKS 실행
         
         </a>
     </li>
@@ -748,9 +748,9 @@
  
   
     
-      <li data-nav-id="/eksctl/test/" title="Test the Cluster" class="dd-item active">
+      <li data-nav-id="/eksctl/test/" title="클러스터 테스트" class="dd-item active">
         <a href="../../eksctl/test/">
-        Test the Cluster
+        클러스터 테스트
         
         </a>
     </li>
@@ -3661,7 +3661,7 @@
             
           
           
-            <a href='../../'>Amazon EKS 워크샵</a> > <a href='../../eksctl/'>Launch using eksctl</a> > Test the Cluster
+            <a href='../../'>Amazon EKS 워크샵</a> > <a href='../../eksctl/'>eksctl을 이용하여 EKS 실행</a> > 클러스터 테스트
           
          
           
@@ -3681,7 +3681,7 @@
 <ul>
 <li>
 <ul>
-<li><a href="#congratulations">Congratulations!</a></li>
+<li><a href="#축하합니다">축하합니다!</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -3698,7 +3698,7 @@
         
         <div id="body-inner">
           
-            <h1>Test the Cluster</h1>
+            <h1>클러스터 테스트</h1>
           
 
         
@@ -3706,12 +3706,12 @@
 
 
 
-<p>Confirm your Nodes:</p>
+<p>노드 확인:</p>
 
 <pre><code class="language-bash">kubectl get nodes
 </code></pre>
 
-<p>Export the Worker Role Name for use throughout the workshop</p>
+<p>실습에 사용할 역할 이름을 환경변수로 설정하세요.</p>
 
 <pre><code class="language-bash">INSTANCE_PROFILE_PREFIX=$(aws cloudformation describe-stacks | jq -r '.Stacks[].StackName' | grep eksctl-eksworkshop-eksctl-nodegroup)
 INSTANCE_PROFILE_NAME=$(aws iam list-instance-profiles | jq -r '.InstanceProfiles[].InstanceProfileName' | grep $INSTANCE_PROFILE_PREFIX)
@@ -3720,9 +3720,9 @@ echo &quot;export ROLE_NAME=${ROLE_NAME}&quot; &gt;&gt; ~/.bash_profile
 
 </code></pre>
 
-<h4 id="congratulations">Congratulations!</h4>
+<h4 id="축하합니다">축하합니다!</h4>
 
-<p>You now have a fully working Amazon EKS Cluster that is ready to use!</p>
+<p>이제 사용할 준비가 완료된 Amazon EKS 클러스터를 갖게 되었습니다!</p>
 
 
 <footer class=" footline" >
@@ -6351,7 +6351,7 @@ echo &quot;export ROLE_NAME=${ROLE_NAME}&quot; &gt;&gt; ~/.bash_profile
 
 
         
-            <a class="nav nav-prev" href="../../eksctl/launcheks/" title="Launch EKS"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../../eksctl/launcheks/" title="EKS 실행"> <i class="fas fa-chevron-left"></i></a>
         
         
             <a class="nav nav-next" href="../../dashboard/" title="쿠버네티스 대시보드 배포" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
@@ -6363,20 +6363,20 @@ echo &quot;export ROLE_NAME=${ROLE_NAME}&quot; &gt;&gt; ~/.bash_profile
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1553107010"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1553107010"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1553107010"></script>
-    <script src="../../js/jquery.sticky.js?1553107010"></script>
-    <script src="../../js/featherlight.min.js?1553107010"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1553107010"></script>
-    <script src="../../js/highlight.pack.js?1553107010"></script>
+    <script src="../../js/clipboard.min.js?1553107126"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1553107126"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1553107126"></script>
+    <script src="../../js/jquery.sticky.js?1553107126"></script>
+    <script src="../../js/featherlight.min.js?1553107126"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1553107126"></script>
+    <script src="../../js/highlight.pack.js?1553107126"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1553107010"></script>
-    <script src="../../js/learn.js?1553107010"></script>
-    <script src="../../js/hugo-learn.js?1553107010"></script>
+    <script src="../../js/modernizr.custom.71422.js?1553107126"></script>
+    <script src="../../js/learn.js?1553107126"></script>
+    <script src="../../js/hugo-learn.js?1553107126"></script>
 
-    <link href="../../mermaid/mermaid.css?1553107010" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.min.js?1553107010"></script>
+    <link href="../../mermaid/mermaid.css?1553107126" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.min.js?1553107126"></script>
     <script>
 	var config = {
         startOnLoad:true,

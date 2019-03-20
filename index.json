@@ -141,10 +141,10 @@
 },
 {
 	"uri": "/eksctl/prerequisites/",
-	"title": "Prerequisites",
+	"title": "준비하기",
 	"tags": [],
 	"description": "",
-	"content": "For this module, we need to download the eksctl binary:\ncurl --silent --location \u0026quot;https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz\u0026quot; | tar xz -C /tmp sudo mv -v /tmp/eksctl /usr/local/bin  Confirm the eksctl command works:\neksctl version  "
+	"content": "eksctl 바이너리를 다운로드 하세요 :\ncurl --silent --location \u0026quot;https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz\u0026quot; | tar xz -C /tmp sudo mv -v /tmp/eksctl /usr/local/bin  eksct 명령어 동작을 확인하세요 :\neksctl version  "
 },
 {
 	"uri": "/spotworkers/workers/",
@@ -372,10 +372,10 @@
 },
 {
 	"uri": "/eksctl/launcheks/",
-	"title": "Launch EKS",
+	"title": "EKS 실행",
 	"tags": [],
 	"description": "",
-	"content": " DO NOT PROCEED with this step unless you have validated the IAM role in use by the Cloud9 IDE. You will not be able to run the necessary kubectl commands in the later modules unless the EKS cluster is built using the IAM role.\n Challenge: How do I check the IAM role on the workspace?\n  Expand here to see the solution   Run aws sts get-caller-identity and validate that your Arn contains eksworkshop-admin or modernizer-workshop-cl9  (or the role created when starting the workshop) and an Instance Id.\n{ \u0026quot;Account\u0026quot;: \u0026quot;123456789012\u0026quot;, \u0026quot;UserId\u0026quot;: \u0026quot;AROA1SAMPLEAWSIAMROLE:i-01234567890abcdef\u0026quot;, \u0026quot;Arn\u0026quot;: \u0026quot;arn:aws:sts::123456789012:assumed-role/eksworkshop-admin/i-01234567890abcdef\u0026quot; } or { \u0026quot;Account\u0026quot;: \u0026quot;123456789012\u0026quot;, \u0026quot;UserId\u0026quot;: \u0026quot;AROA1SAMPLEAWSIAMROLE:i-01234567890abcdef\u0026quot;, \u0026quot;Arn\u0026quot;: \u0026quot;arn:aws:sts::123456789012:assumed-role/modernizer-workshop-cl9/i-01234567890abcdef\u0026quot; }  If you do not see the correct role, please go back and validate the IAM role for troubleshooting.\nIf you do see the correct role, proceed to next step to create an EKS cluster.\n  Create an EKS cluster To create a basic EKS cluster, run:\neksctl create cluster --name=eksworkshop-eksctl --nodes=3 --node-ami=auto --region=${AWS_REGION}  Launching EKS and all the dependencies will take approximately 15 minutes\n "
+	"content": " 사용중인 Cloud9 IDE에서 IAM 역할을 확인하지 않았다면 더 이상 진행하면 안됩니다. EKS 클러스터가 IAM 역할을 사용하여 빌드되지 않은 경우 나중 모듈에서 필요한 kubectl 명령을 실행할 수 없습니다.\n 도전: 워크스페이스에서 IAM 역할을 확인하려면 어떻게하나요?\n  솔루션을 보려면 여기를 펼치세요   Run aws sts get-caller-identity and validate that your Arn contains eksworkshop-admin or modernizer-workshop-cl9 (or the role created when starting the workshop) and an Instance Id. aws sts get-caller-identity를 실행하여 Arn 에eksworkshop-admin 또는 modernizer-workshop-cl9 (또는 워크숍을 시작할 때 생성 된 역할)과 인스턴스 Id가 들어 있는지 확인하십시오.\n{ \u0026quot;Account\u0026quot;: \u0026quot;123456789012\u0026quot;, \u0026quot;UserId\u0026quot;: \u0026quot;AROA1SAMPLEAWSIAMROLE:i-01234567890abcdef\u0026quot;, \u0026quot;Arn\u0026quot;: \u0026quot;arn:aws:sts::123456789012:assumed-role/eksworkshop-admin/i-01234567890abcdef\u0026quot; } or { \u0026quot;Account\u0026quot;: \u0026quot;123456789012\u0026quot;, \u0026quot;UserId\u0026quot;: \u0026quot;AROA1SAMPLEAWSIAMROLE:i-01234567890abcdef\u0026quot;, \u0026quot;Arn\u0026quot;: \u0026quot;arn:aws:sts::123456789012:assumed-role/modernizer-workshop-cl9/i-01234567890abcdef\u0026quot; }  올바른 역할이 아니라면 IAM 역할을 확인으로 돌아가서 문제를 해결하세요.\n올바른 역할이 표시되면 다음 단계로 진행하여 EKS 클러스터를 만듭니다.\n  EKS 클러스터 만들기 기본 EKS 클러스터를 생성하려면 다음을 실행하세요 :\neksctl create cluster --name=eksworkshop-eksctl --nodes=3 --node-ami=auto --region=${AWS_REGION}  EKS와 모든 의존관계들의 실행은 약 15 분이 소요됩니다.\n "
 },
 {
 	"uri": "/tabs-example/tabs/eksctl/",
@@ -421,10 +421,10 @@
 },
 {
 	"uri": "/eksctl/",
-	"title": "Launch using eksctl",
+	"title": "eksctl을 이용하여 EKS 실행",
 	"tags": [],
 	"description": "",
-	"content": " Launch using eksctl by Weaveworks We have some very powerful partner tools that allow us to automate much of the experience of creating an EKS cluster, simplifying the process.\nIn this module, we will highlight a tool contributed by Weaveworks called eksctl, based on the official AWS CloudFormation templates, and will use it to launch and configure our EKS cluster and nodes.\n  "
+	"content": " eksctl by Weaveworks을 이용하여 EKS 실행 여기 프로세스를 단순화 해줄 강력한 파트너 도구가 있습니다. EKS 클러스터 생성에 대한 경험을 자동화해줍니다.\n이번 장에서는 Weaveworks가 제공하는 공식 AWS CloudFormation 템플릿을 기반의 eksctl을 이용하여 EKS 클러스터 및 노드를 시작하고 구성합니다.\n  "
 },
 {
 	"uri": "/prerequisites/sshkey/",
@@ -554,10 +554,10 @@
 },
 {
 	"uri": "/eksctl/test/",
-	"title": "Test the Cluster",
+	"title": "클러스터 테스트",
 	"tags": [],
 	"description": "",
-	"content": " Confirm your Nodes:\nkubectl get nodes  Export the Worker Role Name for use throughout the workshop\nINSTANCE_PROFILE_PREFIX=$(aws cloudformation describe-stacks | jq -r '.Stacks[].StackName' | grep eksctl-eksworkshop-eksctl-nodegroup) INSTANCE_PROFILE_NAME=$(aws iam list-instance-profiles | jq -r '.InstanceProfiles[].InstanceProfileName' | grep $INSTANCE_PROFILE_PREFIX) ROLE_NAME=$(aws iam get-instance-profile --instance-profile-name $INSTANCE_PROFILE_NAME | jq -r '.InstanceProfile.Roles[] | .RoleName') echo \u0026quot;export ROLE_NAME=${ROLE_NAME}\u0026quot; \u0026gt;\u0026gt; ~/.bash_profile  Congratulations! You now have a fully working Amazon EKS Cluster that is ready to use!\n"
+	"content": " 노드 확인:\nkubectl get nodes  실습에 사용할 역할 이름을 환경변수로 설정하세요.\nINSTANCE_PROFILE_PREFIX=$(aws cloudformation describe-stacks | jq -r '.Stacks[].StackName' | grep eksctl-eksworkshop-eksctl-nodegroup) INSTANCE_PROFILE_NAME=$(aws iam list-instance-profiles | jq -r '.InstanceProfiles[].InstanceProfileName' | grep $INSTANCE_PROFILE_PREFIX) ROLE_NAME=$(aws iam get-instance-profile --instance-profile-name $INSTANCE_PROFILE_NAME | jq -r '.InstanceProfile.Roles[] | .RoleName') echo \u0026quot;export ROLE_NAME=${ROLE_NAME}\u0026quot; \u0026gt;\u0026gt; ~/.bash_profile  축하합니다! 이제 사용할 준비가 완료된 Amazon EKS 클러스터를 갖게 되었습니다!\n"
 },
 {
 	"uri": "/scaling/deploy_ca/",

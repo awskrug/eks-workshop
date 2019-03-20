@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Launch using eksctl on Amazon EKS 워크샵</title>
+    <title>eksctl을 이용하여 EKS 실행 on Amazon EKS 워크샵</title>
     <link>/eksctl/</link>
-    <description>Recent content in Launch using eksctl on Amazon EKS 워크샵</description>
+    <description>Recent content in eksctl을 이용하여 EKS 실행 on Amazon EKS 워크샵</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <lastBuildDate>Tue, 07 Aug 2018 13:31:55 -0700</lastBuildDate>
@@ -12,36 +12,36 @@
     
     
     <item>
-      <title>Prerequisites</title>
+      <title>준비하기</title>
       <link>/eksctl/prerequisites/</link>
       <pubDate>Tue, 07 Aug 2018 13:31:55 -0700</pubDate>
       
       <guid>/eksctl/prerequisites/</guid>
-      <description>For this module, we need to download the eksctl binary:
-curl --silent --location &amp;quot;https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz&amp;quot; | tar xz -C /tmp sudo mv -v /tmp/eksctl /usr/local/bin  Confirm the eksctl command works:
+      <description>eksctl 바이너리를 다운로드 하세요 :
+curl --silent --location &amp;quot;https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz&amp;quot; | tar xz -C /tmp sudo mv -v /tmp/eksctl /usr/local/bin  eksct 명령어 동작을 확인하세요 :
 eksctl version  </description>
     </item>
     
     <item>
-      <title>Launch EKS</title>
+      <title>EKS 실행</title>
       <link>/eksctl/launcheks/</link>
       <pubDate>Tue, 07 Aug 2018 13:34:24 -0700</pubDate>
       
       <guid>/eksctl/launcheks/</guid>
-      <description>DO NOT PROCEED with this step unless you have validated the IAM role in use by the Cloud9 IDE. You will not be able to run the necessary kubectl commands in the later modules unless the EKS cluster is built using the IAM role.
- Challenge: How do I check the IAM role on the workspace?
-  Expand here to see the solution   Run aws sts get-caller-identity and validate that your Arn contains eksworkshop-admin or modernizer-workshop-cl9  (or the role created when starting the workshop) and an Instance Id.</description>
+      <description>사용중인 Cloud9 IDE에서 IAM 역할을 확인하지 않았다면 더 이상 진행하면 안됩니다. EKS 클러스터가 IAM 역할을 사용하여 빌드되지 않은 경우 나중 모듈에서 필요한 kubectl 명령을 실행할 수 없습니다.
+ 도전: 워크스페이스에서 IAM 역할을 확인하려면 어떻게하나요?
+  솔루션을 보려면 여기를 펼치세요   Run aws sts get-caller-identity and validate that your Arn contains eksworkshop-admin or modernizer-workshop-cl9 (or the role created when starting the workshop) and an Instance Id. aws sts get-caller-identity를 실행하여 Arn 에eksworkshop-admin 또는 modernizer-workshop-cl9 (또는 워크숍을 시작할 때 생성 된 역할)과 인스턴스 Id가 들어 있는지 확인하십시오.</description>
     </item>
     
     <item>
-      <title>Test the Cluster</title>
+      <title>클러스터 테스트</title>
       <link>/eksctl/test/</link>
       <pubDate>Tue, 07 Aug 2018 13:36:57 -0700</pubDate>
       
       <guid>/eksctl/test/</guid>
-      <description>Confirm your Nodes:
-kubectl get nodes  Export the Worker Role Name for use throughout the workshop
-INSTANCE_PROFILE_PREFIX=$(aws cloudformation describe-stacks | jq -r &#39;.Stacks[].StackName&#39; | grep eksctl-eksworkshop-eksctl-nodegroup) INSTANCE_PROFILE_NAME=$(aws iam list-instance-profiles | jq -r &#39;.InstanceProfiles[].InstanceProfileName&#39; | grep $INSTANCE_PROFILE_PREFIX) ROLE_NAME=$(aws iam get-instance-profile --instance-profile-name $INSTANCE_PROFILE_NAME | jq -r &#39;.InstanceProfile.Roles[] | .RoleName&#39;) echo &amp;quot;export ROLE_NAME=${ROLE_NAME}&amp;quot; &amp;gt;&amp;gt; ~/.bash_profile  Congratulations! You now have a fully working Amazon EKS Cluster that is ready to use!</description>
+      <description>노드 확인:
+kubectl get nodes  실습에 사용할 역할 이름을 환경변수로 설정하세요.
+INSTANCE_PROFILE_PREFIX=$(aws cloudformation describe-stacks | jq -r &#39;.Stacks[].StackName&#39; | grep eksctl-eksworkshop-eksctl-nodegroup) INSTANCE_PROFILE_NAME=$(aws iam list-instance-profiles | jq -r &#39;.InstanceProfiles[].InstanceProfileName&#39; | grep $INSTANCE_PROFILE_PREFIX) ROLE_NAME=$(aws iam get-instance-profile --instance-profile-name $INSTANCE_PROFILE_NAME | jq -r &#39;.InstanceProfile.Roles[] | .RoleName&#39;) echo &amp;quot;export ROLE_NAME=${ROLE_NAME}&amp;quot; &amp;gt;&amp;gt; ~/.bash_profile  축하합니다! 이제 사용할 준비가 완료된 Amazon EKS 클러스터를 갖게 되었습니다!</description>
     </item>
     
   </channel>
