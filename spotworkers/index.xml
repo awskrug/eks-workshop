@@ -17,7 +17,8 @@
       <pubDate>Tue, 07 Aug 2018 11:05:19 -0700</pubDate>
       
       <guid>/spotworkers/workers/</guid>
-      <description>이미 EKS 클러스터와 작업자 노드가 있지만 작업자로 구성된 일부 스팟 인스턴스가 필요합니다. 또한 지능적인 스케줄링 결정을 내릴 수 있도록 스팟(Spot)과 주문형(On-Demand)을 식별하는 노드 레이블링 전략이 필요합니다. AWS CloudFormation을 사용하여 EKS 클러스터에 연결할 새 작업 노드를 시작합니다. 이 템플릿은 여러 인스턴스 유형으로 구성된 단일 k8s 노드 그룹을 구매하는 최신 기능을 최대한 활용하는 ASG(Auto Scaling Group)를 생성합니다. 다음 블로그를 확인하세요: New – EC2 Auto Scaling Groups With Multiple Instance Types &amp;amp; Purchase Options for details.</description>
+      <description>이미 EKS 클러스터와 작업자 노드가 있지만 작업자로 구성된 일부 스팟 인스턴스가 필요합니다. 또한 지능적인 스케줄링 결정을 내릴 수 있도록 스팟(Spot)과 주문형(On-Demand)을 식별하는 노드 레이블링 전략이 필요합니다. AWS CloudFormation을 사용하여 EKS 클러스터에 연결할 새 작업 노드를 시작합니다.
+이 템플릿은 여러 인스턴스 유형으로 구성된 단일 k8s 노드 그룹을 구매하는 최신 기능을 최대한 활용하여 ASG(Auto Scaling Group)를 생성합니다. 다음 블로그를 확인하세요: New – EC2 Auto Scaling Groups With Multiple Instance Types &amp;amp; Purchase Options</description>
     </item>
     
     <item>
