@@ -57,12 +57,12 @@ apiVersion: v1 kind: Service metadata: name: ecsdemo-nodejs spec: selector: app:
     </item>
     
     <item>
-      <title>ELB 서비스 롤 존재 확인</title>
+      <title>ELB 서비스 롤(role) 존재 확인</title>
       <link>/deploy/servicerole/</link>
       <pubDate>Tue, 18 Sep 2018 17:40:09 -0500</pubDate>
       
       <guid>/deploy/servicerole/</guid>
-      <description>이전에 로드 밸런서를 생성하지 않은 AWS 계정인 경우, ELB의 서비스 롤(role)이 아직 존재하지 않을 수 있습니다.
+      <description>이전에 로드 밸런서를 생성하지 않은 AWS 계정인 경우, ELB의 서비스(service) 롤(role)이 아직 존재하지 않을 수 있습니다.
 롤을 확인하고 누락된 경우에는 만듭니다.
 다음의 명령어를 귀하의 클라우드9 워크스페이스에 복사/붙여넣기 합니다.
 aws iam get-role --role-name &amp;quot;AWSServiceRoleForElasticLoadBalancing&amp;quot; || aws iam create-service-linked-role --aws-service-name &amp;quot;elasticloadbalancing.amazonaws.com&amp;quot;  </description>

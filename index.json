@@ -491,10 +491,10 @@
 },
 {
 	"uri": "/deploy/servicerole/",
-	"title": "ELB 서비스 롤 존재 확인",
+	"title": "ELB 서비스 롤(role) 존재 확인",
 	"tags": [],
 	"description": "",
-	"content": "이전에 로드 밸런서를 생성하지 않은 AWS 계정인 경우, ELB의 서비스 롤(role)이 아직 존재하지 않을 수 있습니다.\n롤을 확인하고 누락된 경우에는 만듭니다.\n다음의 명령어를 귀하의 클라우드9 워크스페이스에 복사/붙여넣기 합니다.\naws iam get-role --role-name \u0026quot;AWSServiceRoleForElasticLoadBalancing\u0026quot; || aws iam create-service-linked-role --aws-service-name \u0026quot;elasticloadbalancing.amazonaws.com\u0026quot;  "
+	"content": "이전에 로드 밸런서를 생성하지 않은 AWS 계정인 경우, ELB의 서비스(service) 롤(role)이 아직 존재하지 않을 수 있습니다.\n롤을 확인하고 누락된 경우에는 만듭니다.\n다음의 명령어를 귀하의 클라우드9 워크스페이스에 복사/붙여넣기 합니다.\naws iam get-role --role-name \u0026quot;AWSServiceRoleForElasticLoadBalancing\u0026quot; || aws iam create-service-linked-role --aws-service-name \u0026quot;elasticloadbalancing.amazonaws.com\u0026quot;  "
 },
 {
 	"uri": "/advanced-networking/secondary_cidr/configure-cni/",
@@ -613,7 +613,7 @@
 	"title": "마이크로서비스 예제 배포",
 	"tags": [],
 	"description": "",
-	"content": " 예제 마이크로 서비스를 배포해봅시다.  예제 애플리케이션 배포   NodeJS 백엔드 API 배포   크리스탈 백엔드 API 배포하기   서비스(service) 종류 확인   ELB 서비스 롤 존재 확인   프론트엔드 서비스 배포하기   서비스(service) 주소 찾기   백엔드 서비스 스케일링   프론트엔드 스케일링   애플리케이션 정리   "
+	"content": " 예제 마이크로 서비스를 배포해봅시다.  예제 애플리케이션 배포   NodeJS 백엔드 API 배포   크리스탈 백엔드 API 배포하기   서비스(service) 종류 확인   ELB 서비스 롤(role) 존재 확인   프론트엔드 서비스 배포하기   서비스(service) 주소 찾기   백엔드 서비스 스케일링   프론트엔드 스케일링   애플리케이션 정리   "
 },
 {
 	"uri": "/spotworkers/",
@@ -1145,7 +1145,7 @@
 	"title": "Credits",
 	"tags": [],
 	"description": "",
-	"content": " Thanks to our wonderful contributors  for making Open Source a better place! .ghContributors{ display:flex; flex-flow: wrap; align-content: flex-start } .ghContributors  div{ width: 50% ; display: inline-flex; margin-bottom: 5px; } .ghContributors  div label{ padding-left: 4px ; } .ghContributors  div span{ font-size: x-small; padding-left: 4px ; }  "
+	"content": " Thanks to our wonderful contributors  for making Open Source a better place! .ghContributors{ display:flex; flex-flow: wrap; align-content: flex-start } .ghContributors  div{ width: 50% ; display: inline-flex; margin-bottom: 5px; } .ghContributors  div label{ padding-left: 4px ; } .ghContributors  div span{ font-size: x-small; padding-left: 4px ; }   @brentley 47 commits   @voyagerwoo 40 commits   @geremyCohen 25 commits   @oak2278 20 commits   @dalbhanj 10 commits   @rnzsgh 8 commits   @jpeddicord 6 commits   @buzzsurfr 6 commits   @yoonian 6 commits   @nikipat 4 commits   @gmarchand 3 commits   @alexpulver 2 commits   @alexei-led 2 commits   @DocValerian 2 commits   @rasensio 2 commits   @yunsu246 2 commits   @johnstanfield 2 commits   @ocxo 1 commits   @sharmaanshul2102 1 commits   @bhean 1 commits   @ChanceLee0111 1 commits   @rebelthor 1 commits   @enghwa 1 commits   @feanil 1 commits   @GElkayam 1 commits   @geordan-hatech 1 commits   @itaysk 1 commits   @techsolx 1 commits   @jupp0r 1 commits   @kimsaabyepedersen 1 commits   @Lixxia 1 commits   @LiranBri 1 commits   @mreferre 1 commits   @mikesigs 1 commits   @tabern 1 commits   @nihooge 1 commits   @wolruf 1 commits   @ranrotx 1 commits   @shaiss 1 commits   @jennylover 1 commits   @sajee 1 commits   @obbaeiei 1 commits   @trevorrobertsjr 1 commits   @vjsikha 1 commits   @Oik741 1 commits   @algestam 1 commits   @auziel 1 commits   @barelnir 1 commits   @gearora 1 commits   @jaybarnes 1 commits   "
 },
 {
 	"uri": "/tabs-example/tabs/",
