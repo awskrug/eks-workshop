@@ -19,7 +19,7 @@ weight: 1
 1. 관리자 접근 IAM 권한을 부여합니다 :
 ![Attach Policy](/images/iam-2-attach-policy.png)
 
-1. `Create sser` 버튼을 클릭하여 IAM 유저를 생성합니다 :
+1. `Create user` 버튼을 클릭하여 IAM 유저를 생성합니다 :
 ![Confirm User](/images/iam-3-create-user.png)
 
 1. 로그인 URL을 저장 또는 메모해두세요 :
