@@ -17,6 +17,11 @@ chmod +x get_helm.sh
 ```
 
 {{% notice info %}}
+From Helm version 3 ,tiller is no longer suppoerted and if you are using Helm 3 or higher version you do not want to run through below tiller configuration steps
+Referrence : https://helm.sh/docs/faq/ 
+{{% /notice %}}
+
+{{% notice info %}}
 Once you install helm, the command will prompt you to run 'helm init'. **Do not run 'helm init'.** Follow the instructions to configure helm using **Kubernetes RBAC** and then install tiller as specified below
 If you accidentally run 'helm init', you can safely uninstall tiller by running 'helm reset --force'
 {{% /notice %}}
